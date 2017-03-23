@@ -9,12 +9,14 @@ import os
 app = Flask(__name__)
 
 def download_image(img_str, url):
-    f = open(img_str, 'w')
-    dat = urllib.urlopen(url).read()
-    # print "dat",dat
-    f.write(dat)
-    print("written ", img_str, " ", url)
-    f.close()
+    with open(img_str, "wb") as fh:
+        fh.write(urllib.urlopen(url).read())
+    # f = open(img_str, 'w')
+    # dat = urllib.urlopen(url).read()
+    # # print "dat",dat
+    # f.write(dat)
+    # print("written ", img_str, " ", url)
+    # f.close()
 
 def remove_images():
     import os
