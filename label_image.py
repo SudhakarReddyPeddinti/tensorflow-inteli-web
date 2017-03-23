@@ -22,7 +22,9 @@ def remove_images():
 def method():
     print "request received"
     data = request.form
-    print data
+    print "data",data
+    print "urls",data.getlist('imageBase64')
+    print "data.values",data.values['imageBase64']
     # image_list=['http://i63.tinypic.com/10hq0wx.jpg',
     #             'http://i66.tinypic.com/2usx6xw.jpg',
     #             'http://i67.tinypic.com/1zmdoph.jpg',
