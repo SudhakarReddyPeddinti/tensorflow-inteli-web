@@ -21,10 +21,11 @@ def remove_images():
 @cross_origin()
 def method():
     print "request received"
-    data = request.form
+    data = request.get_json()
     print "data",data
-    print "urls",data.getlist('imageBase64')
-    print "data.values",data.values['imageBase64']
+    print "json_data",data['imageBase64']
+    # print "urls",data.getlist('imageBase64')
+    # print "data.values",data.values['imageBase64']
     # image_list=['http://i63.tinypic.com/10hq0wx.jpg',
     #             'http://i66.tinypic.com/2usx6xw.jpg',
     #             'http://i67.tinypic.com/1zmdoph.jpg',
