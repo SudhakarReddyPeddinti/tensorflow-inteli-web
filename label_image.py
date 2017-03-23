@@ -25,8 +25,8 @@ def method():
     data = request.get_json()
     print "data",data
     print "json_data",data['imageBase64']
-    image_list=data['imageBase64']
-    print "image_list",image_list
+    image_list_str=data['imageBase64']
+    print "image_list",image_list_str
     # print "urls",data.getlist('imageBase64')
     # print "data.values",data.values['imageBase64']
     # image_list=['http://i63.tinypic.com/10hq0wx.jpg',
@@ -47,6 +47,8 @@ def method():
     #             ]
     print("data")
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
+    image_list=[]
+    image_list.append(image_list_str)
     for counter, image_url in enumerate(image_list):
         file_name=str('static/tmp/'+str(counter)+'.jpg')
         print(file_name)
