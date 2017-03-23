@@ -15,8 +15,9 @@ def download_image(img_str, url):
     f.close()
 
 def remove_images():
+    path = os.path('static/tmp/')
     for file_name in os.listdir('static/tmp/'):
-        os.remove('static/tmp/'+file_name)
+        os.remove(path+file_name)
 
 @app.route('/', methods=['POST'])
 @cross_origin()
@@ -50,7 +51,8 @@ def method():
     image_list=[]
     image_list.append(image_list_str)
     for counter, image_url in enumerate(image_list):
-        file_name=str('static/tmp/'+str(counter)+'.jpg')
+        path=os.path('static/tmp/')
+        file_name=str(path+str(counter)+'.jpg')
         print(file_name)
         download_image(file_name, image_url)
     # f.write(urllib.urlopen('http://i63.tinypic.com/10hq0wx.jpg').read())
