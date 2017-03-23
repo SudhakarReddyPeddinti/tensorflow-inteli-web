@@ -17,30 +17,33 @@ def remove_images():
     for file_name in os.listdir('static/tmp/'):
         os.remove('static/tmp/'+file_name)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 @cross_origin()
 def method():
-    image_list=['http://i63.tinypic.com/10hq0wx.jpg',
-                'http://i66.tinypic.com/2usx6xw.jpg',
-                'http://i67.tinypic.com/1zmdoph.jpg',
-                'http://i63.tinypic.com/5xju40.jpg',
-                'http://i64.tinypic.com/2llf09e.jpg',
-                'http://i66.tinypic.com/invhb7.jpg',
-                'http://i64.tinypic.com/v3p1dl.jpg',
-                'http://i64.tinypic.com/1fg5yf.jpg',
-                'http://i64.tinypic.com/v2ur6w.jpg',
-                'http://i66.tinypic.com/2gw5091.jpg',
-                'http://i65.tinypic.com/5bpf6a.jpg',
-                'http://i64.tinypic.com/rsud7o.jpg',
-                'http://i63.tinypic.com/2cpe149.jpg',
-                'http://i64.tinypic.com/20z33vq.jpg',
-                'http://i65.tinypic.com/11kb76g.jpg'
-                ]
+    print "request received"
+    data = request.form
+    print data
+    # image_list=['http://i63.tinypic.com/10hq0wx.jpg',
+    #             'http://i66.tinypic.com/2usx6xw.jpg',
+    #             'http://i67.tinypic.com/1zmdoph.jpg',
+    #             'http://i63.tinypic.com/5xju40.jpg',
+    #             'http://i64.tinypic.com/2llf09e.jpg',
+    #             'http://i66.tinypic.com/invhb7.jpg',
+    #             'http://i64.tinypic.com/v3p1dl.jpg',
+    #             'http://i64.tinypic.com/1fg5yf.jpg',
+    #             'http://i64.tinypic.com/v2ur6w.jpg',
+    #             'http://i66.tinypic.com/2gw5091.jpg',
+    #             'http://i65.tinypic.com/5bpf6a.jpg',
+    #             'http://i64.tinypic.com/rsud7o.jpg',
+    #             'http://i63.tinypic.com/2cpe149.jpg',
+    #             'http://i64.tinypic.com/20z33vq.jpg',
+    #             'http://i65.tinypic.com/11kb76g.jpg'
+    #             ]
     print("data")
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
-    for counter, image_url in enumerate(image_list):
-        file_name=str('static/tmp/'+str(counter)+'.jpg')
-        download_image(file_name, image_url)
+    # for counter, image_url in enumerate(image_list):
+    #     file_name=str('static/tmp/'+str(counter)+'.jpg')
+    #     download_image(file_name, image_url)
     # f.write(urllib.urlopen('http://i63.tinypic.com/10hq0wx.jpg').read())
     # f.close()
 
