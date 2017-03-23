@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 def download_image(img_str, url):
-    with open(img_str, "wb") as fh:
+    with open('tmp.jpg', "wb") as fh:
         fh.write(urllib.urlopen(url).read())
     # f = open(img_str, 'w')
     # dat = urllib.urlopen(url).read()
@@ -20,8 +20,8 @@ def download_image(img_str, url):
 
 def remove_images():
     import os
-    path = os.path.abspath('static/tmp/')
-    for file_name in os.listdir('static/tmp/'):
+    path = os.path.abspath('static/tmp')
+    for file_name in os.listdir('static/tmp'):
         os.remove(path+file_name)
 
 @app.route('/', methods=['POST'])
@@ -57,7 +57,7 @@ def method():
     image_list.append(image_list_str)
     for counter, image_url in enumerate(image_list):
         import os
-        path=os.path.abspath('static/tmp/')
+        path=os.path.abspath('static/tmp')
         file_name=str(path+"/"+str(counter)+'.jpg')
         print(file_name)
         download_image(file_name, image_url)
