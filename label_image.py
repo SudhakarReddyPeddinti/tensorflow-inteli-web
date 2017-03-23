@@ -16,7 +16,7 @@ def download_image(img_str, url):
 
 def remove_images():
     import os
-    path = os.path('static/tmp/')
+    path = os.path.abspath('static/tmp/')
     for file_name in os.listdir('static/tmp/'):
         os.remove(path+file_name)
 
@@ -53,7 +53,7 @@ def method():
     image_list.append(image_list_str)
     for counter, image_url in enumerate(image_list):
         import os
-        path=os.path('static/tmp/')
+        path=os.path.abspath('static/tmp/')
         file_name=str(path+str(counter)+'.jpg')
         print(file_name)
         download_image(file_name, image_url)
