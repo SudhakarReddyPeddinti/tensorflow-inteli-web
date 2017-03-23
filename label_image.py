@@ -10,7 +10,9 @@ app = Flask(__name__)
 
 def download_image(img_str, url):
     f = open(img_str, 'wb')
-    f.write(urllib.urlopen(url).read())
+    dat = urllib.urlopen(url).read()
+    print "dat",dat
+    f.write(dat)
     print("written ", img_str, " ", url)
     f.close()
 
