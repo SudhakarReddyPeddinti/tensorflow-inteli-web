@@ -11,6 +11,7 @@ app = Flask(__name__)
 def download_image(img_str, url):
     f = open(img_str, 'wb')
     f.write(urllib.urlopen(url).read())
+    print("written ", img_str, " ", url)
     f.close()
 
 def remove_images():
@@ -48,6 +49,7 @@ def method():
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
     for counter, image_url in enumerate(image_list):
         file_name=str('static/tmp/'+str(counter)+'.jpg')
+        print(file_name)
         download_image(file_name, image_url)
     # f.write(urllib.urlopen('http://i63.tinypic.com/10hq0wx.jpg').read())
     # f.close()
