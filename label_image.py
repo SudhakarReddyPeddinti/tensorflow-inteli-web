@@ -11,7 +11,7 @@ app = Flask(__name__)
 def download_image(img_str, url):
     f = open(img_str, 'wb')
     dat = urllib.urlopen(url).read()
-    print "dat",dat
+    # print "dat",dat
     f.write(dat)
     print("written ", img_str, " ", url)
     f.close()
@@ -56,7 +56,7 @@ def method():
     for counter, image_url in enumerate(image_list):
         import os
         path=os.path.abspath('static/tmp/')
-        file_name=str(path+str(counter)+'.jpg')
+        file_name=str(path+"/"+str(counter)+'.jpg')
         print(file_name)
         download_image(file_name, image_url)
     # f.write(urllib.urlopen('http://i63.tinypic.com/10hq0wx.jpg').read())
