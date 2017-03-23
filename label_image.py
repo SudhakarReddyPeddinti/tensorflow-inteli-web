@@ -24,6 +24,8 @@ def method():
     data = request.get_json()
     print "data",data
     print "json_data",data['imageBase64']
+    image_list=data['imageBase64']
+    print "image_list",image_list
     # print "urls",data.getlist('imageBase64')
     # print "data.values",data.values['imageBase64']
     # image_list=['http://i63.tinypic.com/10hq0wx.jpg',
@@ -44,9 +46,9 @@ def method():
     #             ]
     print("data")
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
-    # for counter, image_url in enumerate(image_list):
-    #     file_name=str('static/tmp/'+str(counter)+'.jpg')
-    #     download_image(file_name, image_url)
+    for counter, image_url in enumerate(image_list):
+        file_name=str('static/tmp/'+str(counter)+'.jpg')
+        download_image(file_name, image_url)
     # f.write(urllib.urlopen('http://i63.tinypic.com/10hq0wx.jpg').read())
     # f.close()
 
@@ -78,5 +80,5 @@ def method():
 
     print tf_predictions
 
-    remove_images()
+    # remove_images()
     return repr(tf_predictions)
