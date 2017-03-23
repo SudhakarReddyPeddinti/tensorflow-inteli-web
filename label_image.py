@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 def download_image(img_str, url):
-    with open('tmp.jpg', "wb") as fh:
+    with open(img_str, "wb") as fh:
         fh.write(urllib.urlopen(url).read())
     # f = open(img_str, 'w')
     # dat = urllib.urlopen(url).read()
@@ -54,7 +54,7 @@ def method():
     print("data")
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
     image_list=[]
-    image_list.append(image_list_str)
+    image_list.append('http://i63.tinypic.com/10hq0wx.jpg')
     for counter, image_url in enumerate(image_list):
         import os
         path=os.path.abspath('static/tmp')
