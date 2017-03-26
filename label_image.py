@@ -9,14 +9,14 @@ import os
 app = Flask(__name__)
 
 def download_image(img_str, url):
-    with open(img_str, "wb") as fh:
-        fh.write(urllib.urlopen(url).read())
-    # f = open(img_str, 'w')
-    # dat = urllib.urlopen(url).read()
-    # # print "dat",dat
-    # f.write(dat)
-    # print("written ", img_str, " ", url)
-    # f.close()
+    # with open(img_str, "wb") as fh:
+    #     fh.write(urllib.urlopen(url).read())
+    f = open(img_str, 'w')
+    dat = urllib.urlopen(url).read()
+    print "dat",dat
+    f.write(dat)
+    print("written ", img_str, " ", url)
+    f.close()
 
 def remove_images():
     import os
@@ -54,9 +54,10 @@ def method():
     print("data")
     # file = cStringIO.StringIO(urllib2.urlopen('http://localhost:3939/static/Image/Image1.jpg').read())
     image_list=[]
-    image_list.append('http://i63.tinypic.com/10hq0wx.jpg')
+    image_list.append(image_list_str)
     for counter, image_url in enumerate(image_list):
         import os
+        print image_url
         path=os.path.abspath('static/tmp')
         file_name=str(path+"/"+str(counter)+'.jpg')
         print(file_name)
